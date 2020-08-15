@@ -15,12 +15,14 @@ ActiveRecord::Schema.define(version: 2020_08_15_121157) do
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
     t.bigint "customer_id"
+    t.bigint "hotel_id"
     t.date "date_of_booking"
     t.datetime "check_in"
     t.datetime "check_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["hotel_id"], name: "index_bookings_on_hotel_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"
   end
 
