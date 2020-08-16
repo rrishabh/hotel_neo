@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :bookings do
       collection do
         get "/:hotel_id/available_rooms" => :available_rooms
-        post "/:hotel_id/check_in" => :check_in
+        post "/:hotel_id/checkin" => :checkin
+        post "/:hotel_id/checkout" => :checkout
       end
     end
 

@@ -1,7 +1,5 @@
 class Api::CustomersController < ApplicationController
   # before_action :doorkeeper_authorize!
-  protect_from_forgery unless: -> { request.format.json? }
-
   def create
     @customer = Customer.new(create_params)
 
