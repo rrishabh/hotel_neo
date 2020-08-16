@@ -17,6 +17,15 @@ class BookingService
     end
   end
 
+  def checkin
+    @booking = Booking.where(room_id: params[:room_id], customer_id: @customer.id, date_of_booking: params[:booking_date]).first
+    @booking.update_attributes(check_in: Time.now)
+  end
+
+  def checkout
+    @booking = Booking.where(room_id: params[:room_id], customer_id: @customer.id).first
+    @booking.update_attributes(check_out: Time.now)
+  end
 
   private
 
